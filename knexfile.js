@@ -7,11 +7,11 @@ module.exports = {
       filename: "./database/auth.db3"
     },
     useNullAsDefault: true,
-    pool: {
-      afterCreat: (conn, done) => {
-        conn.run("PRAGMA foreign_keys = ON", done);
-      }
-    },
+    // pool: {
+    //   afterCreat: (conn, done) => {
+    //     conn.run("PRAGMA foreign_keys = ON", done);
+    //   }
+    // },
     migrations: {
       directory: "./database/migrations"
     },
