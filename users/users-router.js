@@ -1,12 +1,13 @@
 const express = require("express");
 const Users = require("./users-model.js");
+const bcrypt = require("bcryptjs");
 const server = express();
 
 server.get("/", (req, res) => {
   res.send("It's alive!");
 });
 
-server.post("/api/register", (req, res) => {
+server.post("/register", (req, res) => {
   let { username, password } = req.body;
   const hash = bcrypt.hashSync(password, 8);
   Users.add({ username, password: hash })
@@ -18,7 +19,7 @@ server.post("/api/register", (req, res) => {
     });
 });
 
-server.post("/api/login", (req, res) => {
+server.post("/login", (req, res) => {
   let { username, password } = req.body;
 
   Users.findBy({ username })
@@ -35,7 +36,7 @@ server.post("/api/login", (req, res) => {
     });
 });
 
-server.get("/api/users", (req, res) => {
+server.get("/users", (req, res) => {
   Users.find()
     .then(users => {
       res.json(users);
