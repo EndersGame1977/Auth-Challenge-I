@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/EndersGame1977/Auth-Challenge-I#readme",
   "dependencies": {
+    "antd": "^3.23.3",
     "bcryptjs": "^2.4.3",
     "connect-session-knex": "^1.4.0",
     "cors": "^2.8.5",
