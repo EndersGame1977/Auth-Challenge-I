@@ -54,4 +54,20 @@ server.get("/hash", (req, res) => {
   res.send(`the hash for ${name} is ${hash}`);
 });
 
+server.get("/logout", (req, res) => {
+  if (req.session) {
+    req.session.destroy(err => {
+      if (err) {
+        res.status(500).json({
+          message: "You can check out anytime you like, but you can never leave"
+        });
+      } else {
+        res.status(200).json({ message: "bye" });
+      }
+    });
+  } else {
+    res.status(200).json({ message: "alread logged out" });
+  }
+});
+
 module.exports = server;
