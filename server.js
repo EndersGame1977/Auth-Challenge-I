@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const UsersRouter = require("./users/users-router.js");
 const session = require("express-session");
+const knexSessionStore = require("connect-session-knex")(session);
 
 const server = express();
 
